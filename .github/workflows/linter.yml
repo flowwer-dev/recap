@@ -1,9 +1,9 @@
-name: Tests
+name: Linter
 
 on: push
 
 jobs:
-  test:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,4 +17,4 @@ jobs:
     - name: Install dependencies
       run: yarn install --frozen-lockfile
 
-    - run: yarn test
+    - run: yarn lint
