@@ -1,6 +1,6 @@
 const alreadyPublished = require('../alreadyPublished');
 
-const RECAP = '## Recap\n|content|';
+const RECAP = '## ⚡️ Recap\n|content|';
 const OTHER_CONTENT = '## Other pull request content';
 
 describe('Interactors | .alreadyPublished', () => {

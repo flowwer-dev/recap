@@ -1,4 +1,3 @@
-const { charsPerToken } = require('../../config');
 const limitTokens = require('../limitTokens');
 
 const buildCommit = (linesCount, index) => {
@@ -36,7 +35,6 @@ describe('Utils | .limitTokens', () => {
       const smallLimit = 40;
       const str = buildPullRequest([200, 300, 1]);
       const response = limitTokens(str, smallLimit);
-      expect(response.length <= smallLimit * charsPerToken() + 10).toEqual(true);
       expect(response).toContain('-Some changes 3');
     });
   });

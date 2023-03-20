@@ -13,5 +13,8 @@
   },
   "globals": {
     "Promise": "readonly"
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": "off",
   }
 }

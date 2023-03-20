@@ -12,6 +12,9 @@
   "license": "MIT",
   "jest": {
     "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+      "./tests/setup.js"
+    ],
     "testMatch": [
       "**/?(*.)+(spec|test).[jt]s?(x)"
     ]
@@ -30,7 +33,9 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.24.1",
     "eslint-plugin-jest": "^24.4.0",
-    "jest": "^27.0.6"
+    "jest": "^27.0.6",
+    "jest-extended": "^3.2.4",
+    "nock": "^13.3.0"
   },
   "funding": "https://github.com/sponsors/manuelmhtr"
 }

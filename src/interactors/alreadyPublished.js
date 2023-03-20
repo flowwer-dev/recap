@@ -1,6 +1,6 @@
 const { t } = require('../i18n');
 
-const TITLE_REGEXP = new RegExp(`(^|\\n)(## ${t('table.title')})\\n`);
+const TITLE_REGEXP = new RegExp(`(^|\\n)(## ${t('comment.title')})\\n`);
 
 const isActionComment = (body) => body && TITLE_REGEXP.test(body);
 

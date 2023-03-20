@@ -1,6 +1,11 @@
 {
   "skip": "Skipping execution because recap was published already",
   "logs": {
+    "params": "Parameters:\n{{params}}",
+    "pullRequest": "Pull request fetched successfully:\n{{pullRequest}}",
+    "prPatch": "Pull request patch fetched successfully:\n{{prPatch}}",
+    "recap": "Recap calculated successfully:\n{{recap}}",
+    "postedComment": "Comment was successfully posted",
     "success": "Action successfully executed"
   },
   "sponsors": {
