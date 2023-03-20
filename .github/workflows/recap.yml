@@ -5,7 +5,7 @@ on:
     types: [opened]
 
 jobs:
-  stats:
+  recap:
     runs-on: ubuntu-latest
     steps:
       - name: Recap changes

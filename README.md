@@ -1,10 +1,11 @@
 # ⚡️ Recap
 
 [![CI](https://github.com/flowwer-dev/recap/workflows/Tests/badge.svg)](https://github.com/flowwer-dev/recap/actions?query=workflow%3ATests)
+[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-Recap-blue.svg?colorA=24292e&colorB=0366d6&style=flat&longCache=true&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAM6wAADOsB5dZE0gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAERSURBVCiRhZG/SsMxFEZPfsVJ61jbxaF0cRQRcRJ9hlYn30IHN/+9iquDCOIsblIrOjqKgy5aKoJQj4O3EEtbPwhJbr6Te28CmdSKeqzeqr0YbfVIrTBKakvtOl5dtTkK+v4HfA9PEyBFCY9AGVgCBLaBp1jPAyfAJ/AAdIEG0dNAiyP7+K1qIfMdonZic6+WJoBJvQlvuwDqcXadUuqPA1NKAlexbRTAIMvMOCjTbMwl1LtI/6KWJ5Q6rT6Ht1MA58AX8Apcqqt5r2qhrgAXQC3CZ6i1+KMd9TRu3MvA3aH/fFPnBodb6oe6HM8+lYHrGdRXW8M9bMZtPXUji69lmf5Cmamq7quNLFZXD9Rq7v0Bpc1o/tp0fisAAAAASUVORK5CYII=)](https://github.com/marketplace/actions/pull-request-recap)
 
 Tired of writing long pull request descriptions? or worse, not writing them at all?
 
-This Github action will summarize the most critical changes in a pull request using [GPT](https://openai.com/blog/chatgpt).
+This Github action will summarize the most significant changes in a pull request using [GPT](https://openai.com/blog/chatgpt).
 
 The objective of this action is to:
 
@@ -52,7 +53,7 @@ on:
     types: [opened]
 
 jobs:
-  stats:
+  recap:
     runs-on: ubuntu-latest
     steps:
       - name: Recap changes
@@ -63,7 +64,7 @@ jobs:
 
 This config will:
 
-* Recap the most important changes included in the Pull Request.
+* Recap the most significant changes included in the Pull Request.
 * Post them as a comment.
 
 ## How the get an OpenAI API Key?
@@ -82,14 +83,14 @@ This config will:
 
   ```yml
   jobs:
-  stats:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
-    steps:
-      - name: Run pull request stats
-        uses: flowwer-dev/pull-request-stats@main
+    recap:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: read
+        pull-requests: write
+      steps:
+        - name: Run pull request recap
+          uses: flowwer-dev/recap@main
   ```
 </details>
 

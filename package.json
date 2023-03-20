@@ -1,6 +1,6 @@
 {
   "name": "recap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Github action to summarize the most important changes in a pull request",
   "main": "dist/index.js",
   "scripts": {
