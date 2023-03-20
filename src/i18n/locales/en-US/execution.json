@@ -1,0 +1,17 @@
+{
+  "skip": "Skipping execution because recap was published already",
+  "logs": {
+    "success": "Action successfully executed"
+  },
+  "sponsors": {
+    "external": {
+      "fetch": {
+        "success": "External sponsors fetched successfully. {{data}}",
+        "error": "Failed to fetch external sponsors. {{error}}"
+      }
+    }
+  },
+  "errors": {
+    "main": "Execution failed with error: {{message}}"
+  }
+}

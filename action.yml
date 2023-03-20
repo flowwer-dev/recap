@@ -1,0 +1,25 @@
+name: 'Pull Request Recap'
+author: 'Manuel de la Torre'
+description: 'Github action to summarize the most important changes in a pull request'
+inputs:
+  github-token:
+    description: 'The default GitHub Token (secrets.GITHUB_TOKEN), used to publish comments as a bot. No need to assign a value for this input.'
+    required: true
+    default: ${{ github.token }}
+  openai-apikey:
+    description: 'An API Key for your OpenAI account. Required.'
+    required: true
+  publish-as:
+    description: 'Where to publish the results. Possible values: "COMMENT" or "DESCRIPTION"'
+    required: false
+    default: 'COMMENT'
+  telemetry:
+    description: 'Indicates if the action is allowed to send monitoring data to the developer.'
+    required: false
+    default: true
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
+branding:
+  icon: 'zap'
+  color: 'orange'
