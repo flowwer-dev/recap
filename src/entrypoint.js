@@ -12,7 +12,7 @@ const getParams = () => ({
   pullRequestId: getPrId(),
   currentRepo: getCurrentRepo(),
   githubToken: core.getInput('github-token'),
-  openaiApiKey: core.getInput('openai-api-key'),
+  openaiApiKey: core.getInput('openai-apikey'),
   publishAs: core.getInput('publish-as'),
   useTelemetry: core.getBooleanInput('telemetry'),
 });

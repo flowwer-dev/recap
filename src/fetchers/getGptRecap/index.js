@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const axios = require('axios');
 const parser = require('./parser');
+const { t } = require('../../i18n');
 const { getGptConfig } = require('../../config');
 const { logRequestError } = require('../../utils');
 
@@ -38,9 +39,12 @@ module.exports = ({
   return axios(options)
     .then(parser(prompt))
     .catch((error) => {
-      const msg = `Error getting GPT Recap with "${JSON.stringify(options)}"`;
-      core.debug(msg);
+      core.debug(t('execution.errors.gptRequest', {
+        options: JSON.stringify(options, null, 2),
+      }));
+      const response = error.response || {};
       logRequestError(core, error);
+      if (response.status === 401) core.setFailed(t('execution.errors.badOpenaiApiKey'));
       throw error;
     });
 };

@@ -2,22 +2,22 @@
 
 [![CI](https://github.com/flowwer-dev/recap/workflows/Tests/badge.svg)](https://github.com/flowwer-dev/recap/actions?query=workflow%3ATests)
 
-Tired of writing long pull request descriptions? or worst, not writing them at all?
+Tired of writing long pull request descriptions? or worse, not writing them at all?
 
-This Github action will summarize the most important changes in a pull request using [GPT](https://openai.com/blog/chatgpt).
+This Github action will summarize the most critical changes in a pull request using [GPT](https://openai.com/blog/chatgpt).
 
 The objective of this action is to:
 
 * Reduce the time spent writing the pull request description.
 * Help developers understand the changes before reviewing them.
 
-Running this action will add a comment to the pull request with a summary of the changes.
+Running this action will add a comment to the pull request summarizing the changes. [For example](https://github.com/flowwer-dev/recap/pull/1#issuecomment-1476682437):
 
-![](/assets/exmaple.png)
+![](/assets/example.png)
 
 ## Privacy
 * **No repository data is collected**, stored, or distributed by this GitHub action. This action is **state-less**.
-* [Minimal data](/src/services/telemetry/sendStart.js) is sent to Mixpanel in order to improve this action. However, you can opt-out using the `telemetry` option.
+* [Minimal data](/src/services/telemetry/sendStart.js) is sent to Mixpanel to improve this action. However, you can opt out using the `telemetry` option.
 
 ## Usage
 
@@ -70,7 +70,7 @@ This config will:
 
 1. Create an account on [OpenAI's developers site](https://platform.openai.com/docs/api-reference).
 2. Go to Config > [View API Keys](https://platform.openai.com/account/api-keys).
-3. Press the button `Create new secret key` and copy the value.
+3. Press the `Create new secret key` button and copy the value.
 4. Voilà!
 
 ## Troubleshooting
@@ -96,8 +96,8 @@ This config will:
 <details>
   <summary>I'm a sponsor but still getting the error "...is a premium feature, available to sponsors".</summary>
 
-  1. Check the sponsorship comes from the account that owns the configured repos (usually an organization).
-  2. Make sure the sponsorship is configured as `public`, otherwise, the action cannot access the sponsorship information. If you prefer to keep it `private`, please reach me out to make it work for you that way 😉.
+  1. Check the sponsorship comes from the account that owns the configured repository (usually an organization).
+  2. Ensure the sponsorship is configured as `public`; otherwise, the action cannot access the sponsorship information. If you prefer to keep it `private`, please reach out to make it work for you that way 😉.
 </details>
 
 ## Premium features ✨
@@ -105,16 +105,16 @@ This config will:
 This action offers some premium features only for sponsors:
 
 * Disabling telemetry.
-* More comming soon.
+* More coming soon.
 
 The **suggested sponsorship is $20 USD / month**. However, if it's not possible for you or your organization, please consider supporting it with any amount you can. Even a one-time sponsorship will enable the Premium features and encourage the progress of this project.
 
-Beign a sponsor will also give you access to the premium features in all my [other projects](#related-projects).
+Being a sponsor will also give you access to the premium features in all my [other projects](#related-projects).
 
 Thanks for your support! 💙
 
 
-## Related projects
+## Related projects 🔥
 
 * **[Pull Request Stats](https://github.com/flowwer-dev/pull-request-stats)**: Github action to print relevant stats about Pull Request **reviewers**.
 

@@ -18,6 +18,8 @@
     }
   },
   "errors": {
+    "badOpenaiApiKey": "OpenAI API Key is invalid. Please check your configuration.",
+    "gptRequest": "Error getting GPT Recap with options:\n{{options}}",
     "main": "Execution failed with error: {{message}}"
   }
 }

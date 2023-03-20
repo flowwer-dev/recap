@@ -55,6 +55,7 @@ module.exports =
 const core = __webpack_require__(470);
 const axios = __webpack_require__(53);
 const parser = __webpack_require__(202);
+const { t } = __webpack_require__(781);
 const { getGptConfig } = __webpack_require__(508);
 const { logRequestError } = __webpack_require__(353);
 
@@ -92,9 +93,12 @@ module.exports = ({
   return axios(options)
     .then(parser(prompt))
     .catch((error) => {
-      const msg = `Error getting GPT Recap with "${JSON.stringify(options)}"`;
-      core.debug(msg);
+      core.debug(t('execution.errors.gptRequest', {
+        options: JSON.stringify(options, null, 2),
+      }));
+      const response = error.response || {};
       logRequestError(core, error);
+      if (response.status === 401) core.setFailed(t('execution.errors.badOpenaiApiKey'));
       throw error;
     });
 };
@@ -5071,7 +5075,7 @@ const getParams = () => ({
   pullRequestId: getPrId(),
   currentRepo: getCurrentRepo(),
   githubToken: core.getInput('github-token'),
-  openaiApiKey: core.getInput('openai-api-key'),
+  openaiApiKey: core.getInput('openai-apikey'),
   publishAs: core.getInput('publish-as'),
   useTelemetry: core.getBooleanInput('telemetry'),
 });
@@ -15997,7 +16001,7 @@ module.exports = get;
 /***/ 861:
 /***/ (function(module) {
 
-module.exports = {"skip":"Skipping execution because recap was published already","logs":{"params":"Parameters:\n{{params}}","pullRequest":"Pull request fetched successfully:\n{{pullRequest}}","prPatch":"Pull request patch fetched successfully:\n{{prPatch}}","recap":"Recap calculated successfully:\n{{recap}}","postedComment":"Comment was successfully posted","success":"Action successfully executed"},"sponsors":{"thankYou":"Thanks for sponsoring this project! 💙","external":{"fetch":{"success":"External sponsors fetched successfully. {{data}}","error":"Failed to fetch external sponsors. {{error}}"}}},"errors":{"main":"Execution failed with error: {{message}}"}};
+module.exports = {"skip":"Skipping execution because recap was published already","logs":{"params":"Parameters:\n{{params}}","pullRequest":"Pull request fetched successfully:\n{{pullRequest}}","prPatch":"Pull request patch fetched successfully:\n{{prPatch}}","recap":"Recap calculated successfully:\n{{recap}}","postedComment":"Comment was successfully posted","success":"Action successfully executed"},"sponsors":{"thankYou":"Thanks for sponsoring this project! 💙","external":{"fetch":{"success":"External sponsors fetched successfully. {{data}}","error":"Failed to fetch external sponsors. {{error}}"}}},"errors":{"badOpenaiApiKey":"OpenAI API Key is invalid. Please check your configuration.","gptRequest":"Error getting GPT Recap with options:\n{{options}}","main":"Execution failed with error: {{message}}"}};
 
 /***/ }),
 
