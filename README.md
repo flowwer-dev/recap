@@ -1,4 +1,4 @@
-# Recap
+# ⚡️ Recap
 
 [![CI](https://github.com/flowwer-dev/recap/workflows/Tests/badge.svg)](https://github.com/flowwer-dev/recap/actions?query=workflow%3ATests)
 

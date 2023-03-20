@@ -16,7 +16,7 @@ const PULL_REQUEST = {
 const PATCH = 'PATCH';
 
 const GPT_RECAP = {
-  results: 'GPT Results',
+  content: 'GPT Results',
 };
 
 jest.mock('../../fetchers', () => ({
@@ -49,7 +49,10 @@ describe('Interactors | .main', () => {
 
   it('returns the GPT recap', async () => {
     const results = await main(baseParams);
-    expect(results).toEqual(GPT_RECAP);
+    expect(results).toEqual(expect.objectContaining({
+      ...GPT_RECAP,
+      comment: expect.any(String),
+    }));
   });
 
   it('requests the pull request by its ID', async () => {
@@ -97,7 +100,7 @@ describe('Interactors | .main', () => {
       octokit,
       publishAs,
       pullRequest: PULL_REQUEST,
-      content: expect.stringContaining(GPT_RECAP.results),
+      comment: expect.stringContaining(GPT_RECAP.content),
     });
     expect(getGptRecap).toHaveBeenCalledAfter(getPullRequestPatch);
   });

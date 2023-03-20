@@ -4,8 +4,9 @@
   "description": "Github action to summarize the most important changes in a pull request",
   "main": "dist/index.js",
   "scripts": {
-    "build": "eslint src && ncc build src/index.js",
-    "test": "jest"
+    "build": "eslint src && ncc build src/entrypoint.js",
+    "test": "jest",
+    "lint": "eslint ./"
   },
   "keywords": [],
   "author": "Manuel de la Torre",

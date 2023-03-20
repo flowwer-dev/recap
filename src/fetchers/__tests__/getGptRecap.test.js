@@ -47,7 +47,7 @@ describe('Fetchers | .getGptRecap', () => {
   it('makes the request with the correct parameters and parses the response', async () => {
     const data = await getGptRecap({ openaiApiKey, patch });
     expect(data).toEqual({
-      results: expect.any(String),
+      content: expect.any(String),
       completionTokens: 52,
       processingMs: 398,
       promptTokens: 911,

@@ -7,7 +7,7 @@ const buildBody = (currentBody, content) => {
 
 module.exports = ({
   octokit,
-  content,
+  comment,
   publishAs,
   pullRequest,
 }) => {
@@ -15,13 +15,13 @@ module.exports = ({
     return updatePullRequest({
       octokit,
       id: pullRequest.id,
-      body: buildBody(pullRequest.body || '', content),
+      body: buildBody(pullRequest.body || '', comment),
     });
   }
 
   return commentOnPullRequest({
     octokit,
-    body: content,
+    body: comment,
     pullRequestId: pullRequest.id,
   });
 };

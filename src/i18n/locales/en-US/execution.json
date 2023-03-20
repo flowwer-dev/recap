@@ -9,6 +9,7 @@
     "success": "Action successfully executed"
   },
   "sponsors": {
+    "thankYou": "Thanks for sponsoring this project! 💙",
     "external": {
       "fetch": {
         "success": "External sponsors fetched successfully. {{data}}",

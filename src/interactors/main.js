@@ -39,13 +39,17 @@ module.exports = async ({
     recap: JSON.stringify(recap, null, 2),
   }));
 
+  const comment = buildComment(recap.content);
   await postComment({
     octokit,
     publishAs,
     pullRequest,
-    content: buildComment(recap.results),
+    comment,
   });
   core.debug(t('execution.logs.postedComment'));
 
-  return recap;
+  return {
+    ...recap,
+    comment,
+  };
 };

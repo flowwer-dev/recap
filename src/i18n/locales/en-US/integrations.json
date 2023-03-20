@@ -1,0 +1,11 @@
+{
+  "summary": {
+    "logs": {
+      "posting": "Post action summary: {{content}}",
+      "success": "Successfully posted to action summary"
+    },
+    "errors": {
+      "writeFailed": "Error posting action summary: {{error}}"
+    }
+  }
+}

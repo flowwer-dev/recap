@@ -14,10 +14,10 @@ describe('Interactors | .postComment', () => {
     id: '1234',
     body: null,
   };
-  const content = '# MARKDOWN BODY';
+  const comment = '# MARKDOWN BODY';
   const baseParams = {
     octokit,
-    content,
+    comment,
     pullRequest,
     publishAs: null,
   };
@@ -29,7 +29,7 @@ describe('Interactors | .postComment', () => {
     expect(updatePullRequest).toBeCalledTimes(1);
     expect(updatePullRequest).toBeCalledWith({
       octokit,
-      body: content,
+      body: comment,
       id: pullRequest.id,
     });
   });
@@ -49,7 +49,7 @@ describe('Interactors | .postComment', () => {
     expect(updatePullRequest).toBeCalledTimes(1);
     expect(updatePullRequest).toBeCalledWith({
       octokit,
-      body: `${prBody}\n\n${content}`,
+      body: `${prBody}\n\n${comment}`,
       id: pullRequest.id,
     });
   });
@@ -61,7 +61,7 @@ describe('Interactors | .postComment', () => {
     expect(commentOnPullRequest).toBeCalledTimes(1);
     expect(commentOnPullRequest).toBeCalledWith({
       octokit,
-      body: content,
+      body: comment,
       pullRequestId: pullRequest.id,
     });
   });
