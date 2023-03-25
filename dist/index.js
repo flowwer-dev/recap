@@ -8487,7 +8487,9 @@ const sliceChars = (file, maxTokens) => {
 };
 
 module.exports = (str, maxTokens) => {
-  const files = str.split(new RegExp(`\n${FILES_SPLIT}`, 'g'));
+  // Remove binary patches as they are not needed and can be very large.
+  const formated = str.replace(/(?:GIT binary patch)(\ndelta.*\s*)(?:[diff --git]|$)/gmsu, 'GIT binary patch');
+  const files = formated.split(new RegExp(`\n${FILES_SPLIT}`, 'g'));
   files.sort((a, b) => a.length - b.length);
 
   let tokens = 0;
@@ -12608,7 +12610,7 @@ module.exports = function bind(fn, thisArg) {
 /***/ 731:
 /***/ (function(module) {
 
-module.exports = {"name":"recap","version":"1.0.0","description":"Github action to summarize the most important changes in a pull request","main":"dist/index.js","scripts":{"build":"eslint src && ncc build src/entrypoint.js","test":"jest","lint":"eslint ./"},"keywords":[],"author":"Manuel de la Torre","license":"MIT","jest":{"testEnvironment":"node","setupFilesAfterEnv":["./tests/setup.js"],"testMatch":["**/?(*.)+(spec|test).[jt]s?(x)"]},"dependencies":{"@actions/core":"^1.5.0","@actions/github":"^5.0.0","axios":"^0.26.1","i18n-js":"^3.9.2","lodash.get":"^4.4.2","mixpanel":"^0.13.0"},"devDependencies":{"@zeit/ncc":"^0.22.3","eslint":"^7.32.0","eslint-config-airbnb-base":"^14.2.1","eslint-plugin-import":"^2.24.1","eslint-plugin-jest":"^24.4.0","jest":"^27.0.6","jest-extended":"^3.2.4","nock":"^13.3.0"},"funding":"https://github.com/sponsors/manuelmhtr"};
+module.exports = {"name":"recap","version":"1.0.1","description":"Github action to summarize the most important changes in a pull request","main":"dist/index.js","scripts":{"build":"eslint src && ncc build src/entrypoint.js","test":"jest","lint":"eslint ./"},"keywords":[],"author":"Manuel de la Torre","license":"MIT","jest":{"testEnvironment":"node","setupFilesAfterEnv":["./tests/setup.js"],"testMatch":["**/?(*.)+(spec|test).[jt]s?(x)"]},"dependencies":{"@actions/core":"^1.5.0","@actions/github":"^5.0.0","axios":"^0.26.1","i18n-js":"^3.9.2","lodash.get":"^4.4.2","mixpanel":"^0.13.0"},"devDependencies":{"@zeit/ncc":"^0.22.3","eslint":"^7.32.0","eslint-config-airbnb-base":"^14.2.1","eslint-plugin-import":"^2.24.1","eslint-plugin-jest":"^24.4.0","jest":"^27.0.6","jest-extended":"^3.2.4","nock":"^13.3.0"},"funding":"https://github.com/sponsors/manuelmhtr"};
 
 /***/ }),
 
