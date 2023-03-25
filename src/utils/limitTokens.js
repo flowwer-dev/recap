@@ -10,7 +10,7 @@ const sliceChars = (file, maxTokens) => {
 
 module.exports = (str, maxTokens) => {
   // Remove binary patches as they are not needed and can be very large.
-  const formated = str.replace(/(?:GIT binary patch\s*)(delta.*\s*)(?:[diff --git]|$)/gmus, '');
+  const formated = str.replace(/(?:GIT binary patch)(\ndelta.*\s*)(?:[diff --git]|$)/gmsu, 'GIT binary patch');
   const files = formated.split(new RegExp(`\n${FILES_SPLIT}`, 'g'));
   files.sort((a, b) => a.length - b.length);
 
